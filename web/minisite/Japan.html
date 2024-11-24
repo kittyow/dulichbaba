@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khám Phá Du Lịch Nhật Bản-</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            line-height: 1.6;
+            color: #333;
+        }
+        header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        nav a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #2980b9;
+        }
+        section {
+            background-color: white;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #3498db;
+        }
+        .media {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .media img, .media video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .media img:hover, .media video:hover {
+            transform: scale(1.05);
+        }
+        .media p {
+            width: 100%;
+            color: #e74c3c;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-top: 10px;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 30px;
+        }
+        footer p {
+            font-size: 1rem;
+        }
+        button#backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        button#backToTop:hover {
+            background-color: #2980b9;
+        }
+
+        /* Responsive Design */
+        @media only screen and (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            .media {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Khám Phá Du Lịch Nhật Bản-</h1>
+        <p>Chào mừng bạn đến với những điểm đến tuyệt vời nhất trong ngành du lịch của Nhật Bản-</p>
+        <nav>
+            <a href="/Web/dulich.html"><b>Home</b></a>
+            <a href="/web/minisite/index.html"><b>Thư Mục</b></a>
+            <a href="/web/minisite/baba.html"><b>Nhóm BaBa</b></a>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Giới Thiệu Ngành Du Lịch</h2>
+        <p>Nhật Bản là một trong những cường quốc văn minh hiện đại và sở hữu công nghệ bậc nhất thế giới. Những năm gần đây Nhật Bản thu hút rất nhiều du khách đến thăm quan, du lịch bởi nét văn hóa truyền thống đa dạng cùng phong cảnh nên thơ hữu tình, tour du lịch Nhật Bản là một trong những tour vô cùng nổi bật được nhiều người lựa chọn</p>
+        <video height="700"controls>
+            <source src="japan.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+
+    <section>
+        <h2>Những Điểm Đến Nổi Bật</h2>
+        <div class="media">
+            <img src="6.jpg" alt="Núi Phú Sĩ" width="800">
+            <p><b>Núi Phú Sĩ</b></p>
+            <p>Địa điểm du lịch ở Nhật Bản đầu tiên phải nhắc đến là núi Phú Sĩ. Nổi tiếng là ngọn núi cao nhất Nhật Bản với độ cao 3.776 mét. Nó được bao quanh bởi năm hồ nước và quang cảnh đồng quê nguyên sơ. Núi Phú Sĩ quanh năm tuyết phủ trắng xóa là một trong những biểu tượng của đất nước mặt trời mọc.</p>
+
+            <img src="7.jpg" alt="Tháp Tokyo" width="800">
+            <p><b>Tháp Tokyo</b></p>
+            <p>Tháp Tokyo tọa lạc tại quận Minatoku và là một trong những địa điểm du lịch ở Nhật Bản nổi tiếng. Đây là tòa tháp vô tuyến cao thứ 2 của Nhật Bản, cao 333m sau tháp Tokyo Sky Tree và cao hơn tháp Eiffel 13m. Tháp Tokyo được xem như là biểu tượng của Nhật Bản và cũng là điểm đến du lịch nổi tiếng ở Nhật mà bạn không nên bỏ qua.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Những Món Ăn Ngon</h2>
+        <div class="media">
+            <img src="8.webp" alt="Sushi" width="800">
+            <p><b>Sushi</b></p>
+            <p>Sushi - Món ăn nổi đình đám không chỉ tại Nhật Bản mà còn trên toàn thế giới. Với sự kết hợp độc đáo giữa cơm trộn giấm và các loại hải sản tươi sống như cá ngừ, hàu, bào ngư, cá hồi, tôm,... Sushi mang đến hương vị đậm đà, tinh tế và không thể cưỡng lại được.</p>
+
+            <img src="9.webp" alt="Sashimi" width="800">
+            <p><b>Sashimi</b></p>
+            <p>Sashimi, món ăn được xem là tuyệt tác trong ẩm thực Nhật Bản, không chỉ đẹp mắt mà còn hấp dẫn với sự đa dạng của các loại hải sản tươi sống. Cá hồi, cá ngừ, cá thu, cá saba, cá nóc, mực, bạch tuộc và tôm biển được thái thành những lát mỏng và được bày trí trên đĩa.</p>
+
+            <img src="10.webp" alt="Rượu Sake" width="800">
+            <p><b>Rượu Sake</b></p>
+            <p>Rượu Sake là một thức uống đặc biệt của người Nhật với ý nghĩa vượt xa hơn việc chỉ đơn giản là thỏa mãn nhu cầu thưởng thức. Nó là một biểu tượng của văn hóa và tôn giáo, gắn kết giữa con người với con người và con người với thần linh.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Du Lịch Nhật Bản- | Tất cả các quyền được bảo lưu.</p>
+    </footer>
+
+    <button id="backToTop">&#8593;</button>
+
+    <script>
+        // Lấy nút quay lại đầu trang
+        const backToTopButton = document.getElementById('backToTop');
+
+        // Hiển thị nút khi cuộn xuống 200px
+        window.onscroll = function() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        };
+
+        // Khi bấm nút, cuộn về đầu trang
+        backToTopButton.onclick = function() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth" // Cuộn mượt mà
+            });
+        };
+    </script>
+
+</body>
+
+</html>
+
