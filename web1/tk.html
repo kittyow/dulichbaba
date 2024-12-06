@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập / Đăng Ký</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            display: none;
+        }
+
+        form.active {
+            display: block;
+        }
+
+        .input-container {
+            position: relative;
+            margin: 20px 0;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            background-color: #f9f9f9;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            border-color: #007bff;
+            background-color: #fff;
+            outline: none;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #007bff;
+            font-size: 20px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .form-container .forgot-password {
+            text-align: right;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2 id="formTitle">Đăng Nhập</h2>
+
+        <!-- Form Đăng Nhập -->
+        <form id="loginForm" class="active">
+            <div class="input-container">
+                <input type="text" id="loginUsername" placeholder="Tên đăng nhập" required>
+            </div>
+            <div class="input-container">
+                <input type="password" id="loginPassword" placeholder="Mật khẩu" required>
+                <span class="toggle-password" onclick="togglePassword('loginPassword')">👁️</span>
+            </div>
+            <button type="submit">Đăng Nhập</button>
+            <div class="forgot-password">
+                <a href="#">Quên mật khẩu?</a>
+            </div>
+        </form>
+
+        <!-- Form Đăng Ký -->
+        <form id="registerForm">
+            <div class="input-container">
+                <input type="text" id="registerUsername" placeholder="Tên đăng nhập" required>
+            </div>
+            <div class="input-container">
+                <input type="password" id="registerPassword" placeholder="Mật khẩu" required>
+                <span class="toggle-password" onclick="togglePassword('registerPassword')">👁️</span>
+            </div>
+            <button type="submit">Đăng Ký</button>
+        </form>
+
+        <!-- Chuyển đổi giữa Đăng Nhập và Đăng Ký -->
+        <p id="toggleText">Chưa có tài khoản? <a href="#" id="toggleForm">Đăng Ký</a></p>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const formTitle = document.getElementById('formTitle');
+        const toggleText = document.getElementById('toggleText');
+        let toggleForm = document.getElementById('toggleForm');
+
+        // Chuyển đổi giữa Đăng Nhập và Đăng Ký
+        function toggleFormEvent() {
+            if (loginForm.classList.contains('active')) {
+                loginForm.classList.remove('active');
+                registerForm.classList.add('active');
+                formTitle.textContent = 'Đăng Ký';
+                toggleText.innerHTML = 'Đã có tài khoản? <a href="#" id="toggleForm">Đăng Nhập</a>';
+            } else {
+                registerForm.classList.remove('active');
+                loginForm.classList.add('active');
+                formTitle.textContent = 'Đăng Nhập';
+                toggleText.innerHTML = 'Chưa có tài khoản? <a href="#" id="toggleForm">Đăng Ký</a>';
+            }
+
+            // Đảm bảo rằng sự kiện được gắn lại cho liên kết
+            toggleForm = document.getElementById('toggleForm');
+            toggleForm.removeEventListener('click', toggleFormEvent); // Xóa sự kiện cũ
+            toggleForm.addEventListener('click', toggleFormEvent); // Gắn lại sự kiện
+        }
+
+        toggleForm.addEventListener('click', toggleFormEvent);
+
+        // Xử lý form đăng ký
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const username = document.getElementById('registerUsername').value;
+            const password = document.getElementById('registerPassword').value;
+
+            // Lấy danh sách người dùng từ localStorage
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+
+            // Kiểm tra nếu tên đăng nhập đã tồn tại
+            if (users.some(user => user.username === username)) {
+                alert('Tên đăng nhập đã tồn tại!');
+                return;
+            }
+
+            // Lưu người dùng vào localStorage
+            users.push({ username, password });
+            localStorage.setItem('users', JSON.stringify(users));
+
+            alert('Đăng ký thành công! Vui lòng đăng nhập.');
+            toggleFormEvent(); // Gọi lại khi chuyển sang form đăng nhập
+        });
+
+        // Xử lý form đăng nhập
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+
+            // Lấy danh sách người dùng từ localStorage
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+
+            const user = users.find(user => user.username === username && user.password === password);
+
+            if (user) {
+                alert('Đăng nhập thành công!');
+
+                // Lưu tên người dùng vào localStorage
+                localStorage.setItem('loggedInUser', username);
+
+                window.location.href = '/Web/dulich.html'; // Chuyển đến trang chính sau khi đăng nhập thành công
+            } else {
+                alert('Tên đăng nhập hoặc mật khẩu không đúng!');
+            }
+        });
+
+        // Hàm bật/tắt hiển thị mật khẩu
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            input.type = (input.type === 'password') ? 'text' : 'password';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Web Cơ Bản</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .text {
+            flex: 2;
+            margin-right: 20px;
+            font-size: 18px;
+        }
+        .video {
+            flex: 2;
+        }
+        video {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+        p {
+            text-indent: 40px;
+            line-height: 1.6;
+        }
+        h2 {
+            text-indent: 40px;
+            line-height: 1.6;
+        }
+        header {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            position: relative;
+        }
+        nav {
+            margin: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 20px;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+        #welcomeMessage {
+            color: white;
+            font-size: 18px;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Chào mừng đến với trang web du lịch</h1>
+        <div id="welcomeMessage"></div> <!-- Chỗ hiển thị tên người dùng và nút đăng xuất -->
+    </header>
+
+    <nav id="navMenu">
+        <a href="dulich.html"><b>Home</b></a>
+        <a href="index.html"><b>Thư Mục</b></a>
+        <a href="BaBa.html"><b>Nhóm BaBa</b></a>
+        <a href="tk.html" id="loginLink"><b>Đăng Nhập</b></a>
+    </nav>
+
+    <div class="container">
+        <div class="text">
+            <h2>Giới Thiệu</h2>
+            <p>Khám phá thế giới theo cách của bạn! Hãy để mỗi chuyến đi trở thành một hành trình đáng nhớ, nơi bạn tìm thấy cảnh đẹp, văn hóa độc đáo, và những trải nghiệm không thể quên!!<3</p>
+            <p>Trang web này mang đến cho những người dự định đi du lịch một góc nhìn rõ ràng và chi tiết hơn về các hành trình khám phá các nước trên thế giới.</p>
+        </div>
+
+        <div class="video">
+            <!-- Video tự động phát và lặp lại -->
+            <video autoplay loop muted id="mainVideo">
+                <source src="spanish.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('visibilitychange', () => {
+            const video = document.getElementById('mainVideo');
+            if (document.hidden) {
+                // Nếu trang bị ẩn (người dùng chuyển tab), dừng video
+                video.pause();
+            } else {
+                // Nếu trang hiển thị lại (người dùng quay lại tab), tiếp tục phát video
+                video.play();
+            }
+        });
+
+        // Kiểm tra người dùng đã đăng nhập hay chưa
+        window.onload = function() {
+            const loggedInUser = localStorage.getItem('loggedInUser');
+            const welcomeMessage = document.getElementById('welcomeMessage');
+            const loginLink = document.getElementById('loginLink');
+
+            if (loggedInUser) {
+                welcomeMessage.innerHTML = `Chào mừng, ${loggedInUser}! <button onclick="logout()">Đăng Xuất</button>`;
+                loginLink.style.display = 'none'; // Ẩn liên kết "Đăng Nhập"
+            } else {
+                welcomeMessage.textContent = ''; // Không hiển thị nếu chưa đăng nhập
+                loginLink.style.display = 'inline-block'; // Hiển thị lại nếu chưa đăng nhập
+            }
+        }
+
+        // Đăng xuất
+        function logout() {
+            localStorage.removeItem('loggedInUser'); // Xóa thông tin đăng nhập khỏi localStorage
+            window.location.href = '/web/minisite/tk.html'; // Quay lại trang đăng nhập
+        }
+    </script>
+
+    <footer>
+        <p>&copy;Nhóm BaBa</p>
+    </footer>
+</body>
+</html>

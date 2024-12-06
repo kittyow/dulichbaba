@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khám Phá Du Lịch Ý-</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            line-height: 1.6;
+            color: #333;
+        }
+        header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        nav a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #2980b9;
+        }
+        section {
+            background-color: white;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #3498db;
+        }
+        .media {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .media img, .media video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .media img:hover, .media video:hover {
+            transform: scale(1.05);
+        }
+        .media p {
+            width: 100%;
+            color: #e74c3c;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-top: 10px;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 30px;
+        }
+        footer p {
+            font-size: 1rem;
+        }
+        button#backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        button#backToTop:hover {
+            background-color: #2980b9;
+        }
+
+        /* Responsive Design */
+        @media only screen and (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            .media {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Khám Phá Du Lịch Ý-</h1>
+        <p>Chào mừng bạn đến với những điểm đến tuyệt vời nhất trong ngành du lịch của Ý-</p>
+        <nav>
+            <a href="dulich.html"><b>Home</b></a>
+            <a href="index.html"><b>Thư Mục</b></a>
+            <a href="BaBa.html"><b>Nhóm BaBa</b></a>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Giới Thiệu Ngành Du Lịch</h2>
+        <p>Khi nhắc đến Ý chắc chắn rằng hầu hết chúng ta đều nghĩ đến một quốc gia có hình dạng giống như một chiếc ủng và một vài tên địa danh du lịch nổi tiếng như Rome, Venice, Milan, Florence,…</p>
+        <p>Quốc gia hấp dẫn nhất Châu Âu được xem là nước Ý, với những món ăn không thể cưỡng lại và kiến trúc tuyệt vời. Ý là một nơi kỳ diệu với phong cảnh tuyệt đẹp được thiên nhiên ưu đãi, khiến bạn đi từ bất ngờ này đến bất ngờ khác.</p>
+        <video height="700"controls>
+            <source src="Italia.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+
+    <section>
+        <h2>Những Điểm Đến Nổi Bật</h2>
+        <div class="media">
+            <img src="anh1.jpg" alt="Thủ Đô Rome"width="800">
+            <p><b>Thủ Đô Rome</b></p>
+            <p>Rome là thủ đô của nước Ý với nhiều địa danh cổ kính, nhà thờ, bảo tàng và quảng trường. Một số điểm đến nổi tiếng bao gồm Đấu trường Colosseum, Vatican City, và đài phun nước Trevi.</p>
+
+            <img src="anh2.jpg" alt="Thành Phố Florence"width="800">
+            <p><b>Thành Phố Florence</b></p>
+            <p>Thành phố Florence là cái nôi của thời kỳ Phục Hưng, nổi tiếng với các kiệt tác kiến trúc và bảo tàng như nhà thờ Florence và cầu Ponte Vecchio.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Những Món Ăn Ngon</h2>
+        <div class="media">
+            <img src="anh3.jpg" alt="Tiramisu"width="800">
+            <p><b>Tiramisu</b></p>
+            <p>Tiramisu là món bánh nổi tiếng của Ý, với sự kết hợp của rượu Rhum, cà phê, cacao và kem. Được mệnh danh là "Thiên đường trong miệng của bạn".</p>
+
+            <img src="anh5.webp" alt="Bolognese"width="800">
+            <p><b>Bolognese</b></p>
+            <p>Sốt Bolognese là món ăn truyền thống của Ý, được ăn kèm với mì Fettuccine hoặc Spaghetti. Món này đã trở thành nổi tiếng toàn cầu.</p>
+
+            <img src="anh4.png" alt="Spaghetti"width="800">
+            <p><b>Mì Ý Spaghetti</b></p>
+            <p>Mì Spaghetti là món pasta truyền thống, có thể kết hợp với nhiều loại sốt khác nhau, là món ăn không thể thiếu trong ẩm thực Ý.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Du Lịch Ý- | Tất cả các quyền được bảo lưu.</p>
+    </footer>
+
+    <button id="backToTop">&#8593;</button>
+
+    <script>
+        // Lấy nút quay lại đầu trang
+        const backToTopButton = document.getElementById('backToTop');
+
+        // Hiển thị nút khi cuộn xuống 200px
+        window.onscroll = function() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        };
+
+        // Khi bấm nút, cuộn về đầu trang
+        backToTopButton.onclick = function() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth" // Cuộn mượt mà
+            });
+        };
+    </script>
+
+</body>
+</html>
